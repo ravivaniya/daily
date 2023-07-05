@@ -8,16 +8,19 @@ void swap(int &num1, int &num2) {
   num1 = temp;
 }
 
-void mergeArray(vector<int> &arr, int low, int mid, int high) {
-  
-}
-
-void mergeSort(vector<int> &arr, int low, int high) {
-  if (low >= high) return;
-  int mid = (low + high) / 2;
-  mergeSort(arr, low, mid);
-  mergeSort(arr, mid + 1, high);
-  mergeArray(arr, low, mid, high); 
+void insertion_sort(vector<int> &arr, int n) {
+  for (int i = 1; i < n; i++) {
+    int j = i;
+    while (arr[j - 1] > arr[j]) {
+      swap(arr[j], arr[j - 1]);
+      j--;
+    }
+  }
+  cout << "After insertion sort: " << "\n";
+  for (int i = 0; i < n; i++) {
+    cout << arr[i] << " ";
+  }
+  cout << endl;
 }
 
 int main() {
@@ -28,6 +31,6 @@ int main() {
     cout << arr[i] << " ";
   }
   cout << endl;
-  mergeSort(arr, 0, n - 1);
+  insertion_sort(arr, n);
   return 0;
 }
