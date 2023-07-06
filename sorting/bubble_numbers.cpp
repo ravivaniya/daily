@@ -1,3 +1,7 @@
+// TODO:
+// pls try float and double numbers also
+// pls try to do in reverse order also
+
 #include<iostream>
 #include<vector>
 using namespace std;
