@@ -9,18 +9,23 @@ void swap(int &num1, int &num2) {
   num1 = temp;
 }
 
-int divide(vector<int> arr, int low, int high) {
-  int pivot = arr[low];
-  int begin = low;
-  int end = high;
+int partition(vector<int> arr, int low, int high) {
+  int pivot = arr[high];
+  int i = (low - 1);
 
-  while (begin < end) {
+  for (int j = low; j <= high - 1; j++) {
+    if (arr[j] < pivot) {
+      i++;
+      swap(arr[i], arr[j]);
+    }
   }
+  swap(arr[i + 1], arr[high]);
+  return (i + 1);
 }
 
 void quickSort(vector<int> arr, int low, int high) {
   if (low < high) {
-    int partitionIndex = divide(arr, low, high);
+    int partitionIndex = partition(arr, low, high);
     quickSort(arr, low, partitionIndex - 1);
     quickSort(arr, partitionIndex + 1, high);
   }
